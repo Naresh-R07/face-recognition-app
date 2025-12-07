@@ -1,53 +1,70 @@
-import { View, Text, TouchableOpacity } from 'react-native';
 import { router } from 'expo-router';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function ResultScreen() {
   return (
-    <View style={{
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#f8f9fa',
-      padding: 20
-    }}>
-
-      <View style={{
-        backgroundColor: '#fff',
-        padding: 30,
-        borderRadius: 20,
-        elevation: 5,
-        shadowColor: '#000',
-        shadowOpacity: 0.2,
-        shadowRadius: 6,
-        alignItems: 'center'
-      }}>
-        <Text style={{
-          fontSize: 32,
-          color: '#2ecc71',
-          fontWeight: 'bold',
-          marginBottom: 10
-        }}>
-          Success ✔
+    <View style={styles.container}>
+      <View style={styles.card}>
+        <Text style={styles.successText}>
+          ✔ Success
         </Text>
 
-        <Text style={{ fontSize: 18, color: '#555' }}>
+        <Text style={styles.messageText}>
           Face Match Completed
         </Text>
       </View>
 
       <TouchableOpacity
-        style={{
-          marginTop: 40,
-          backgroundColor: '#4A90E2',
-          paddingVertical: 15,
-          paddingHorizontal: 40,
-          borderRadius: 12
-        }}
+        style={styles.button}
         onPress={() => router.replace('/')}
       >
-        <Text style={{ color: 'white', fontSize: 18 }}>Back Home</Text>
+        <Text style={styles.buttonText}>Back Home</Text>
       </TouchableOpacity>
-
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#ffffff',
+    padding: 20,
+  },
+  card: {
+    backgroundColor: '#f0f8f0',
+    padding: 40,
+    borderRadius: 15,
+    elevation: 5,
+    alignItems: 'center',
+    marginBottom: 40,
+    borderLeftWidth: 5,
+    borderLeftColor: '#2ecc71',
+  },
+  successText: {
+    fontSize: 32,
+    color: '#2ecc71',
+    fontWeight: 'bold',
+    marginBottom: 15,
+  },
+  messageText: {
+    fontSize: 18,
+    color: '#333333',
+    textAlign: 'center',
+    fontWeight: '500',
+  },
+  button: {
+    backgroundColor: '#4A90E2',
+    paddingVertical: 14,
+    paddingHorizontal: 50,
+    borderRadius: 10,
+    elevation: 5,
+  },
+  buttonText: {
+    color: '#ffffff',
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+});
